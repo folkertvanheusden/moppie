@@ -5,6 +5,7 @@ Required packages:
  * libsdl-gfx1.2-dev
  * libsdl1.2-dev
  * libsndfile1-dev
+ * libsdl-image1.2-dev
 
 Building:
  make
