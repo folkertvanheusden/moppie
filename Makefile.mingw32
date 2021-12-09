@@ -1,0 +1,16 @@
+VERSION=0.3
+
+CXXFLAGS+=-O3 -Wall -DVERSION=\"${VERSION}\" -I/opt/SDL_image-1.2.12/include -I/opt/libsndfile-win32/include -I/opt/SDL-1.2.13/include -I/opt/SDL-gfx-mingw32/include -I/opt/SDL-1.2.13/include/SDL -mwindows
+LDFLAGS+=$(DEBUG) -static-libgcc -static-libstdc++ -L/opt/SDL-1.2.13/lib -lmingw32 -L/opt/SDL_image-1.2.12/lib/x86 -lSDL_image -lSDLmain -lSDL -L/opt/SDL-gfx-mingw32/lib -lSDL_gfx -L/opt/libsndfile-win32/lib -lsndfile
+
+CXX=i586-mingw32msvc-c++
+
+OBJS=keyboard.o moppie.o error.o
+
+all: moppie.exe
+
+moppie.exe: $(OBJS)
+	$(CXX) -Wall -W $(OBJS) $(LDFLAGS) -o moppie.exe
+
+clean:
+	rm -f $(OBJS) moppie.exe
